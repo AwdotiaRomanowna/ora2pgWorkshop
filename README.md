@@ -9,3 +9,6 @@ Oracle image: https://hub.docker.com/r/jaspeen/oracle-11g
 HR DDLScript - Import the HR sample: https://www.oracle.com/database/technologies/appdev/datamodeler-samples.html
 
 
+
+setenforce 0
+docker run -it -v /root/migration/config/:/etc/ora2pg/ georgmoser/ora2pg-docker bash -c 'ora2pg  -t SHOW_VERSION'
