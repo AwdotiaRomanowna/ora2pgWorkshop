@@ -8,6 +8,8 @@ Oracle image: https://hub.docker.com/r/jaspeen/oracle-11g
 
 HR DDLScript - Import the HR sample: https://www.oracle.com/database/technologies/appdev/datamodeler-samples.html
 
+Examples: https://www.darold.net/confs/ora2pg_the_hard_way.pdf
+
 
 
 setenforce 0
