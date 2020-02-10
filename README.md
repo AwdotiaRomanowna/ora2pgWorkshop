@@ -11,4 +11,5 @@ HR DDLScript - Import the HR sample: https://www.oracle.com/database/technologie
 
 
 setenforce 0
+
 docker run -it -v /root/migration/config/:/etc/ora2pg/ georgmoser/ora2pg-docker bash -c 'ora2pg  -t SHOW_VERSION'
