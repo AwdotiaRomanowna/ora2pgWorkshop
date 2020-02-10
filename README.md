@@ -25,3 +25,6 @@ docker run -it -v /root/migration/config/:/etc/ora2pg/ -v /root/migration/data:/
 
 Create project:
 docker run -it -v /root/migration/config/:/etc/ora2pg/ -v /root/migration/data/:/data georgmoser/ora2pg-docker bash -c 'ora2pg -c config/ora2pg.conf --init_project Geneva --project_base data'
+
+Copy data:
+ora2pg -t COPY -o data.sql -b ./data -c ./config/ora2pg.conf
