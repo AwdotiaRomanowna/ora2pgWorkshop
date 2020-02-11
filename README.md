@@ -23,7 +23,8 @@ docker pull georgmoser/ora2pg-docker
 
 mkdir /data /config
 
-docker run -it --privileged -v /config/:/etc/ora2pg/ -v /data:/data georgmoser/ora2pg-docker /bin/bash
+docker run -it --privileged -v /config/:/config -v /data:/data georgmoser/ora2pg-docker /bin/bash
+
 ora2pg --version
 
 apt-get update -y
