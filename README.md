@@ -57,7 +57,7 @@ ora2pg -c config/ora2pg.conf -t SHOW_VERSION
 ora2pg -c config/ora2pg.conf -t SHOW_SCHEMA 
 ```
 
-Check which tables contains schema HR:
+Check which tables contain HR schema:
 
 ```
 ora2pg -c config/ora2pg.conf -t SHOW_TABLE -n HR
