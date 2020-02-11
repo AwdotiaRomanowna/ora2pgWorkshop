@@ -12,19 +12,24 @@ Examples: https://www.darold.net/confs/ora2pg_the_hard_way.pdf
 
 
 Setting up ora2pg:
+
+```
 sudo -i
+```
 From root user:
+```
 yum update -y
 yum install docker -y
+
 systemctl start docker
 systemctl status docker
 
 docker pull georgmoser/ora2pg-docker
 
 mkdir /data /config
-
+```
 Get inside container:
-
+```
 docker run -it --privileged -v /config/:/config -v /data:/data georgmoser/ora2pg-docker /bin/bash
 
 ora2pg --version
@@ -32,34 +37,42 @@ ora2pg --version
 apt-get update -y
 
 apt-get install vim
+```
 
 Generate a migration project:
 
+```
 ora2pg --project_base /data --init_project myproject
+```
 
 change ORACLE_DSN in config file:
 
+```
 vi /data/myproject/config/ora2pg.conf
-
 
 cd data/myproject/
 
 ora2pg -c config/ora2pg.conf -t SHOW_VERSION
 
 ora2pg -c config/ora2pg.conf -t SHOW_SCHEMA 
+```
 
 Check which tables contains schema HR:
 
+```
 ora2pg -c config/ora2pg.conf -t SHOW_TABLE -n HR
+```
 
 List columns of table JOBS:
 
+```
 ora2pg -c config/ora2pg.conf -t SHOW_COLUMN -a 'TABLE[JOBS]' -n HR
-
+```
 
 Generate report:
-
+```
 ora2pg -c config/ora2pg.conf -t SHOW_REPORT –estimate_cost --dump_as_html -n HR > reports/report.html
+```
 
 
 
