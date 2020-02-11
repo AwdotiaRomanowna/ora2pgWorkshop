@@ -28,7 +28,10 @@ docker run -it --privileged -v /config/:/config -v /data:/data georgmoser/ora2pg
 ora2pg --version
 
 apt-get update -y
+
 apt-get install vim
+
+
 
 
 
