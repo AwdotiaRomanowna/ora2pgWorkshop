@@ -31,6 +31,9 @@ apt-get update -y
 
 apt-get install vim
 
+Generate a migration project:
+
+ora2pg --project_base /data --init_project myproject
 
 
 
