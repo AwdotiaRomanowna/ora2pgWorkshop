@@ -42,12 +42,24 @@ change ORACLE_DSN in config file:
 vi /data/myproject/config/ora2pg.conf
 
 
+cd data/myproject/
+
+ora2pg -c config/ora2pg.conf -t SHOW_VERSION
+
+ora2pg -c config/ora2pg.conf -t SHOW_SCHEMA 
+
+Check which tables contains schema HR:
+
+ora2pg -c config/ora2pg.conf -t SHOW_TABLE -n HR
+
+List columns of table JOBS:
+
+ora2pg -c config/ora2pg.conf -t SHOW_COLUMN -a 'TABLE[JOBS]' -n HR
 
 
 
 
 
-docker run -it -v /config/:/etc/ora2pg/ -v /data:/data georgmoser/ora2pg-docker /bin/bash 
 
 
 docker run -it -v /root/migration/config/:/etc/ora2pg/ georgmoser/ora2pg-docker bash -c 'ora2pg -t SHOW_REPORT –estimate_cost --dump_as_html' > report.html
