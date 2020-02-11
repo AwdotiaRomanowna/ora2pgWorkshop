@@ -28,7 +28,7 @@ docker pull georgmoser/ora2pg-docker
 
 mkdir /data /config
 ```
-Get inside container:
+### Get inside container:
 ```
 docker run -it --privileged -v /config/:/config -v /data:/data georgmoser/ora2pg-docker /bin/bash
 
