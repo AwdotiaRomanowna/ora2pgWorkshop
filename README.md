@@ -57,6 +57,10 @@ List columns of table JOBS:
 ora2pg -c config/ora2pg.conf -t SHOW_COLUMN -a 'TABLE[JOBS]' -n HR
 
 
+Generate report:
+
+ora2pg -c config/ora2pg.conf -t SHOW_REPORT –estimate_cost --dump_as_html -n HR > reports/report.html
+
 
 
 
@@ -69,8 +73,6 @@ vi /etc/ora2pg/ora_table.sql
 
 docker run -it -v /root/migration/config/:/etc/ora2pg/ -v /root/migration/data:/data georgmoser/ora2pg-docker bash -c 'ora2pg -i /etc/ora2pg/ora_table.sql -t TABLE -b /data -o output.sql'
 
-Create project:
-docker run -it -v /root/migration/config/:/etc/ora2pg/ -v /root/migration/data/:/data georgmoser/ora2pg-docker bash -c 'ora2pg -c config/ora2pg.conf --init_project Geneva --project_base data'
 
 Copy data:
 ora2pg -t COPY -o data.sql -b ./data -c ./config/ora2pg.conf
