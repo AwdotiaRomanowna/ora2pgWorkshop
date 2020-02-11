@@ -11,10 +11,32 @@ HR DDLScript - Import the HR sample: https://www.oracle.com/database/technologie
 Examples: https://www.darold.net/confs/ora2pg_the_hard_way.pdf
 
 
+Setting up ora2pg:
+sudo -i
+From root user:
+yum update -y
+yum install docker -y
+systemctl start docker
+systemctl status docker
 
-setenforce 0
+docker pull georgmoser/ora2pg-docker
 
-docker run -it -v /root/migration/config/:/etc/ora2pg/ georgmoser/ora2pg-docker bash -c 'ora2pg  -t SHOW_VERSION'
+mkdir /data /config
+
+docker run -it --privileged -v /config/:/etc/ora2pg/ -v /data:/data georgmoser/ora2pg-docker /bin/bash
+ora2pg --version
+
+apt-get update -y
+apt-get install vim
+
+
+
+
+
+
+
+docker run -it -v /config/:/etc/ora2pg/ -v /data:/data georgmoser/ora2pg-docker /bin/bash 
+
 
 docker run -it -v /root/migration/config/:/etc/ora2pg/ georgmoser/ora2pg-docker bash -c 'ora2pg -t SHOW_REPORT –estimate_cost --dump_as_html' > report.html
 
