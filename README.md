@@ -23,6 +23,8 @@ docker pull georgmoser/ora2pg-docker
 
 mkdir /data /config
 
+Get inside container:
+
 docker run -it --privileged -v /config/:/config -v /data:/data georgmoser/ora2pg-docker /bin/bash
 
 ora2pg --version
@@ -35,6 +37,9 @@ Generate a migration project:
 
 ora2pg --project_base /data --init_project myproject
 
+change ORACLE_DSN in config file:
+
+vi /data/myproject/config/ora2pg.conf
 
 
 
