@@ -56,6 +56,7 @@ cd data/myproject/
 
 ### Discovery:
 
+```
 ora2pg -c config/ora2pg.conf -t SHOW_VERSION
 
 ora2pg -c config/ora2pg.conf -t SHOW_SCHEMA 
@@ -73,7 +74,7 @@ List columns of table JOBS:
 ora2pg -c config/ora2pg.conf -t SHOW_COLUMN -a 'TABLE[JOBS]' -n HR
 ```
 
-Generate report:
+### Generate report
 ```
 ora2pg -c config/ora2pg.conf -t SHOW_REPORT --estimate_cost --dump_as_html -n HR > reports/report.html
 ```
