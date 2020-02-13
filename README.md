@@ -114,7 +114,8 @@ CONSTRAINTS_output.sql	INDEXES_output.sql  countries.sql  output.sql
 Investigate the content of 3 files that has been created. 
 
 
-
+* [Create an instance in Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).
+* Connect to the instance and create a database using the instruction in this [document](https://docs.microsoft.com/azure/postgresql/tutorial-design-database-using-azure-portal).
 
 
 
