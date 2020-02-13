@@ -79,15 +79,48 @@ ora2pg -c config/ora2pg.conf -t SHOW_COLUMN -a 'TABLE[JOBS]' -n HR
 ora2pg -c config/ora2pg.conf -t SHOW_REPORT --estimate_cost --dump_as_html -n HR > reports/report.html
 ```
 
+### Offline migration
+Inside ```/data/myproject``` directory create a new directory:
+
+```
+mkdir offline
+cd offline
+```
+
+Create a new file with following content:
+
+```
+vi countries.sql
+
+CREATE TABLE COUNTRIES 
+    ( 
+     COUNTRY_ID CHAR (2 BYTE)  NOT NULL , 
+     COUNTRY_NAME VARCHAR2 (40 BYTE) , 
+     REGION_ID NUMBER 
+    ) LOGGING 
+;
+```
+
+now run ora2pg against this file:
+
+```
+root@13a8720887da:/data/myproject/offline# ora2pg -i countries.sql -t TABLE -c ../config/ora2pg.conf 
+[========================>] 1/1 tables (100.0%) end of table export.
+
+root@13a8720887da:/data/myproject/offline# ls
+CONSTRAINTS_output.sql	INDEXES_output.sql  countries.sql  output.sql
+```
+
+Investigate the content of 3 files that has been created. 
 
 
 
 
 
-docker run -it -v /root/migration/config/:/etc/ora2pg/ georgmoser/ora2pg-docker bash -c 'ora2pg -t SHOW_REPORT –estimate_cost --dump_as_html' > report.html
 
-Offline migration:
-vi /etc/ora2pg/ora_table.sql
+
+
+
 
 docker run -it -v /root/migration/config/:/etc/ora2pg/ -v /root/migration/data:/data georgmoser/ora2pg-docker bash -c 'ora2pg -i /etc/ora2pg/ora_table.sql -t TABLE -b /data -o output.sql'
 
