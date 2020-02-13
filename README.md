@@ -28,7 +28,7 @@ docker pull georgmoser/ora2pg-docker
 
 mkdir /data /config
 ```
-### Get inside container:
+## Get inside container:
 ```
 docker run -it --privileged -v /config/:/config -v /data:/data georgmoser/ora2pg-docker /bin/bash
 
@@ -51,6 +51,10 @@ change ORACLE_DSN in config file:
 vi /data/myproject/config/ora2pg.conf
 
 cd data/myproject/
+
+```
+
+### Discovery:
 
 ora2pg -c config/ora2pg.conf -t SHOW_VERSION
 
