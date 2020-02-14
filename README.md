@@ -79,6 +79,7 @@ ora2pg -c config/ora2pg.conf -t SHOW_COLUMN -a 'TABLE[JOBS]' -n HR
 ora2pg -c config/ora2pg.conf -t SHOW_REPORT --estimate_cost --dump_as_html -n HR > reports/report.html
 ```
 
+## SCHEMA Migration
 ### Offline migration
 Inside ```/data/myproject``` directory create a new directory:
 
@@ -171,6 +172,21 @@ root@13a8720887da:/data/myproject# ./export_schema.sh
 Check the content of two directories:
 * sources - where oracle sources are kept
 * schema - with objects converted to PostgreSQL
+
+## DATA Migration
+From ```/data/myproject``` run the following command:
+```
+ora2pg -t COPY -o data.sql -b ./data -c ./config/ora2pg.conf
+```
+
+Investigate the content of the ```data``` directory:
+```
+root@13a8720887da:/data/myproject# cd data/
+root@13a8720887da:/data/myproject/data# ls
+COUNTRIES_data.sql  DEPARTMENTS_data.sql  EMPLOYEES_data.sql  JOBS_data.sql  JOB_HISTORY_data.sql  LOCATIONS_data.sql  REGIONS_data.sql  data.sql
+```
+
+
 
 ## PostgreSQL PaaS
 
