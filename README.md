@@ -237,6 +237,13 @@ psql -f schema/tables/CONSTRAINTS_table.sql
 psql -f schema/tables/FKEYS_table.sql
 ```
 
+## Test the migration
+In order to lack of DBD::Pg perl module we are not able count rows. If you install the module the command to check migration looks as follows:
+
+```
+ora2pg -c config/ora2pg.conf -t TEST
+```
+
 
 
 # Issues
