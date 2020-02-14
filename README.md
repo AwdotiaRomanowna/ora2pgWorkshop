@@ -196,11 +196,8 @@ COUNTRIES_data.sql  DEPARTMENTS_data.sql  EMPLOYEES_data.sql  JOBS_data.sql  JOB
 
 
 
-
-
-
-docker run -it -v /root/migration/config/:/etc/ora2pg/ -v /root/migration/data:/data georgmoser/ora2pg-docker bash -c 'ora2pg -i /etc/ora2pg/ora_table.sql -t TABLE -b /data -o output.sql'
-
-
-Copy data:
-ora2pg -t COPY -o data.sql -b ./data -c ./config/ora2pg.conf
+# Issues
+* DBD::Pg perl module isn't provided in the container. You might want to install it or use psql for import to PostgreSQL
+* import_all.sh script isn't working in current version of ora2pg because of following lines: ```  pgdsn_defined=$(grep "^PG_DSN" config/ora2pg.conf | sed 's/.*dbi:Pg/dbi:Pg/')
+  if [ "a$pgdsn_defined" = "a" ]; then
+    if [ "a$DB_HOST" != "a" ]; then```
