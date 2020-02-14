@@ -1,5 +1,7 @@
 # ora2pgWorkshop
 
+Useful links:
+
 Workshop: https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/dms/tutorial-oracle-azure-postgresql-online.md
 
 ora2pg image: https://hub.docker.com/r/georgmoser/ora2pg-docker
@@ -10,6 +12,8 @@ HR DDLScript - Import the HR sample: https://www.oracle.com/database/technologie
 
 Examples: https://www.darold.net/confs/ora2pg_the_hard_way.pdf
 
+
+The workshop was checked against Centos 7.
 
 Setting up ora2pg:
 
