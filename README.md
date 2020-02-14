@@ -113,6 +113,36 @@ CONSTRAINTS_output.sql	INDEXES_output.sql  countries.sql  output.sql
 
 Investigate the content of 3 files that has been created. 
 
+### Online migration
+Create online directory inside your project:
+```
+root@13a8720887da:/data/myproject/offline# mkdir /data/myproject/online
+root@13a8720887da:/data/myproject/offline# cd /data/myproject/online
+```
+
+Get the sources of oracle procedures:
+```
+root@13a8720887da:/data/myproject/online# ora2pg -t PROCEDURE -o procedure.sql -c ../config/ora2pg.conf
+[========================>] 2/2 procedures (100.0%) end of procedures export.
+root@13a8720887da:/data/myproject/online# ls
+ADD_JOB_HISTORY_procedure.sql  SECURE_DML_procedure.sql  procedure.sql
+```
+
+Investigate the content of generated files
+
+Add ```-p``` to the command above to convert procedures to plpgsql:
+
+```
+root@13a8720887da:/data/myproject/online# ora2pg -p -t PROCEDURE -o procedure.sql -c ../config/ora2pg.conf
+[========================>] 2/2 procedures (100.0%) end of procedures export.
+root@13a8720887da:/data/myproject/online# ls
+ADD_JOB_HISTORY_procedure.sql  SECURE_DML_procedure.sql  procedure.sql
+```
+
+The previous content has been overwritten. Check if conversion went well by exploring the content of the files.
+
+
+
 ### Export
 Let run the export then!
 
