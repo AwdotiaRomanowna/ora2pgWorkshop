@@ -113,6 +113,36 @@ CONSTRAINTS_output.sql	INDEXES_output.sql  countries.sql  output.sql
 
 Investigate the content of 3 files that has been created. 
 
+### Export
+Let run the export then!
+
+change the name of the schema in ora2pg.conf file:
+
+```
+# Oracle schema/owner to use
+SCHEMA  CHANGE_THIS_SCHEMA_NAME
+```
+So it looks as follows:
+
+```
+# Oracle schema/owner to use
+SCHEMA  HR
+```
+
+Run the export. Make sure you are in the ```/data/myproject``` directory:
+
+```
+root@13a8720887da:/data/myproject# pwd
+/data/myproject
+
+root@13a8720887da:/data/myproject# ./export_schema.sh
+```
+
+Check the content of two directories:
+* sources - where oracle sources are kept
+* schema - with objects converted to PostgreSQL
+
+
 
 * [Create an instance in Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).
 * Connect to the instance and create a database using the instruction in this [document](https://docs.microsoft.com/azure/postgresql/tutorial-design-database-using-azure-portal).
