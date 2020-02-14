@@ -243,7 +243,8 @@ In order to lack of DBD::Pg perl module we are not able count rows. If you insta
 ```
 ora2pg -c config/ora2pg.conf -t TEST
 ```
-
+## Online data migration
+For online data migration approach please refer [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/dms/tutorial-oracle-azure-postgresql-online.md#when-the-postgresql-table-schema-already-exists)
 
 
 # Issues
