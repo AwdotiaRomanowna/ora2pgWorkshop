@@ -193,7 +193,7 @@ COUNTRIES_data.sql  DEPARTMENTS_data.sql  EMPLOYEES_data.sql  JOBS_data.sql  JOB
 * [Create an instance in Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).
 * Connect to the instance and create a database using the instruction in this [document](https://docs.microsoft.com/azure/postgresql/tutorial-design-database-using-azure-portal).
 
-## Import to PostgreSQL Paas
+## Import to PostgreSQL PaaS
 Create .pg_azure file with the credentials to your PaaS database:
 ```
 vi .pg_azure
