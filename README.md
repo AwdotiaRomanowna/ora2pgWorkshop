@@ -217,9 +217,7 @@ createdb ora2pg
 From the ```/data/myproject``` directory load the files:
 ```
 psql -f schema/tables/table.sql
-psql -f schema/tables/INDEXES_table.sql
-psql -f schema/tables/CONSTRAINTS_table.sql
-psql -f schema/tables/FKEYS_table.sql
+
 psql -f schema/sequences/sequence.sql
 psql -f schema/views/view.sql 
 psql -f schema/procedures/procedure.sql
@@ -231,6 +229,12 @@ Check if all objects were correctly created in your new postgres database.
 Import data:
 ```
 psql -f data/data.sql
+```
+Create constraints:
+```
+psql -f schema/tables/INDEXES_table.sql
+psql -f schema/tables/CONSTRAINTS_table.sql
+psql -f schema/tables/FKEYS_table.sql
 ```
 
 
