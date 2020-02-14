@@ -228,6 +228,11 @@ psql -f schema/triggers/trigger.sql
 
 Check if all objects were correctly created in your new postgres database.
 
+Import data:
+```
+psql -f data/data.sql
+```
+
 
 
 # Issues
