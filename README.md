@@ -173,7 +173,7 @@ Check the content of two directories:
 * sources - where oracle sources are kept
 * schema - with objects converted to PostgreSQL
 
-## DATA Migration
+## DATA Export
 From ```/data/myproject``` run the following command:
 ```
 ora2pg -t COPY -o data.sql -b ./data -c ./config/ora2pg.conf
@@ -193,6 +193,40 @@ COUNTRIES_data.sql  DEPARTMENTS_data.sql  EMPLOYEES_data.sql  JOBS_data.sql  JOB
 * [Create an instance in Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).
 * Connect to the instance and create a database using the instruction in this [document](https://docs.microsoft.com/azure/postgresql/tutorial-design-database-using-azure-portal).
 
+## Import to PostgreSQL Paas
+Create .pg_azure file with the credentials to your PaaS database:
+```
+vi .pg_azure
+
+export PGDATABASE=ora2pg
+export PGHOST=name.postgres.database.azure.com
+export PGUSER=user@host
+export PGPASSWORD=VeryBadPractice;)
+```
+
+Save the ```.pg_azure``` file and load it in the session:
+```
+source .pg_azure
+```
+
+Create a new database:
+```
+createdb ora2pg
+```
+
+From the ```/data/myproject``` directory load the files:
+```
+psql -f schema/tables/table.sql
+psql -f schema/tables/INDEXES_table.sql
+psql -f schema/tables/CONSTRAINTS_table.sql
+psql -f schema/tables/FKEYS_table.sql
+psql -f schema/sequences/sequence.sql
+psql -f schema/views/view.sql 
+psql -f schema/procedures/procedure.sql
+psql -f schema/triggers/trigger.sql
+```
+
+Check if all objects were correctly created in your new postgres database.
 
 
 
