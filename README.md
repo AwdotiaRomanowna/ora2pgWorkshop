@@ -143,7 +143,7 @@ The previous content has been overwritten. Check if conversion went well by expl
 
 
 
-### Export
+### Schema export
 Let run the export then!
 
 change the name of the schema in ora2pg.conf file:
@@ -172,7 +172,7 @@ Check the content of two directories:
 * sources - where oracle sources are kept
 * schema - with objects converted to PostgreSQL
 
-
+## PostgreSQL PaaS
 
 * [Create an instance in Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).
 * Connect to the instance and create a database using the instruction in this [document](https://docs.microsoft.com/azure/postgresql/tutorial-design-database-using-azure-portal).
