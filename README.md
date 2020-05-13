@@ -190,6 +190,11 @@ root@13a8720887da:/data/myproject/data# ls
 COUNTRIES_data.sql  DEPARTMENTS_data.sql  EMPLOYEES_data.sql  JOBS_data.sql  JOB_HISTORY_data.sql  LOCATIONS_data.sql  REGIONS_data.sql  data.sql
 ```
 
+Direct export from Oracle to PostgreSQL
+```
+ora2pg -c config/ora2pg.conf -t COPY --pg_dsn "dbi:Pg:dbname=mydb;host=192.168.122.1;port=5432" --pg_user postgres
+```
+
 
 
 ## PostgreSQL PaaS
