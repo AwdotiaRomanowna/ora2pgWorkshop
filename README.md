@@ -256,6 +256,7 @@ ora2pg -c config/ora2pg.conf -t TEST
 For online data migration approach please refer [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/dms/tutorial-oracle-azure-postgresql-online.md#when-the-postgresql-table-schema-already-exists)
 
 # ./export_schema.sh
+```
 ora2pg -p -t TABLE -o table.sql -b ./schema/tables -c ./config/ora2pg.conf
 ora2pg -p -t PACKAGE -o package.sql -b ./schema/packages -c ./config/ora2pg.conf
 ora2pg -p -t VIEW -o view.sql -b ./schema/views -c ./config/ora2pg.conf
@@ -278,7 +279,7 @@ ora2pg -t PROCEDURE -o procedure.sql -b ./sources/procedures -c ./config/ora2pg.
 ora2pg -t PARTITION -o partition.sql -b ./sources/partitions -c ./config/ora2pg.conf
 ora2pg -t TYPE -o type.sql -b ./sources/types -c ./config/ora2pg.conf
 ora2pg -t MVIEW -o mview.sql -b ./sources/mviews -c ./config/ora2pg.conf
-
+```
 
 # Issues
 * DBD::Pg perl module isn't provided in the container. You might want to install it or use psql for import to PostgreSQL
