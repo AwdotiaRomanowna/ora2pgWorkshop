@@ -255,6 +255,30 @@ ora2pg -c config/ora2pg.conf -t TEST
 ## Online data migration
 For online data migration approach please refer [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/dms/tutorial-oracle-azure-postgresql-online.md#when-the-postgresql-table-schema-already-exists)
 
+# ./export_schema.sh
+ora2pg -p -t TABLE -o table.sql -b ./schema/tables -c ./config/ora2pg.conf
+ora2pg -p -t PACKAGE -o package.sql -b ./schema/packages -c ./config/ora2pg.conf
+ora2pg -p -t VIEW -o view.sql -b ./schema/views -c ./config/ora2pg.conf
+ora2pg -p -t SEQUENCE -o sequence.sql -b ./schema/sequences -c ./config/ora2pg.conf
+ora2pg -p -t TRIGGER -o trigger.sql -b ./schema/triggers -c ./config/ora2pg.conf
+ora2pg -p -t FUNCTION -o function.sql -b ./schema/functions -c ./config/ora2pg.conf
+ora2pg -p -t PROCEDURE -o procedure.sql -b ./schema/procedures -c ./config/ora2pg.conf
+ora2pg -p -t TABLESPACE -o tablespace.sql -b ./schema/tablespaces -c ./config/ora2pg.conf
+ora2pg -p -t PARTITION -o partition.sql -b ./schema/partitions -c ./config/ora2pg.conf
+ora2pg -p -t TYPE -o type.sql -b ./schema/types -c ./config/ora2pg.conf
+ora2pg -p -t MVIEW -o mview.sql -b ./schema/mviews -c ./config/ora2pg.conf
+ora2pg -p -t DBLINK -o dblink.sql -b ./schema/dblinks -c ./config/ora2pg.conf
+ora2pg -p -t SYNONYM -o synonym.sql -b ./schema/synonyms -c ./config/ora2pg.conf
+ora2pg -p -t DIRECTORY -o directorie.sql -b ./schema/directories -c ./config/ora2pg.conf
+ora2pg -t PACKAGE -o package.sql -b ./sources/packages -c ./config/ora2pg.conf
+ora2pg -t VIEW -o view.sql -b ./sources/views -c ./config/ora2pg.conf
+ora2pg -t TRIGGER -o trigger.sql -b ./sources/triggers -c ./config/ora2pg.conf
+ora2pg -t FUNCTION -o function.sql -b ./sources/functions -c ./config/ora2pg.conf
+ora2pg -t PROCEDURE -o procedure.sql -b ./sources/procedures -c ./config/ora2pg.conf
+ora2pg -t PARTITION -o partition.sql -b ./sources/partitions -c ./config/ora2pg.conf
+ora2pg -t TYPE -o type.sql -b ./sources/types -c ./config/ora2pg.conf
+ora2pg -t MVIEW -o mview.sql -b ./sources/mviews -c ./config/ora2pg.conf
+
 
 # Issues
 * DBD::Pg perl module isn't provided in the container. You might want to install it or use psql for import to PostgreSQL
