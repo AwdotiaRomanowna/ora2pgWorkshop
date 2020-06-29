@@ -30,11 +30,11 @@ systemctl status docker
 
 docker pull georgmoser/ora2pg-docker
 
-mkdir /data /config
+mkdir /data
 ```
 ## Get inside container:
 ```
-docker run -it --privileged -v /config/:/config -v /data:/data georgmoser/ora2pg-docker /bin/bash
+docker run -it --privileged -v /data:/data georgmoser/ora2pg-docker /bin/bash
 
 ora2pg --version
 
