@@ -2,6 +2,7 @@
 
 Useful links:
 Full Windows-based workshop: https://github.com/microsoft/MCW-Migrating-Oracle-to-Azure-SQL-and-PostgreSQL/blob/master/Hands-on%20lab/HOL%20step-by-step%20-%20Migrating%20Oracle%20to%20PostgreSQL.md#task-4-install-ora2pg
+
 Tutorial: https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/dms/tutorial-oracle-azure-postgresql-online.md
 
 ora2pg image: https://hub.docker.com/r/georgmoser/ora2pg-docker
