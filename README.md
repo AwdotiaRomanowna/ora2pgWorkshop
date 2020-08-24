@@ -212,6 +212,7 @@ export PGDATABASE=ora2pg
 export PGHOST=name.postgres.database.azure.com
 export PGUSER=user@host
 export PGPASSWORD=VeryBadPractice;)
+export PGSSLMODE=require #if you are using PostgreSQL PaaS with SSL enabled
 ```
 
 Save the ```.pg_azure``` file and load it in the session:
