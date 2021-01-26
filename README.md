@@ -283,6 +283,16 @@ ora2pg -t TYPE -o type.sql -b ./sources/types -c ./config/ora2pg.conf
 ora2pg -t MVIEW -o mview.sql -b ./sources/mviews -c ./config/ora2pg.conf
 ```
 
+# Upgrade ora2pg version
+```
+ wget https://github.com/darold/ora2pg/archive/master.zip
+unzip master.zip
+cd ora2pg-master/
+perl Makefile.PL
+make
+sudo make install
+```
+
 # Issues
 * DBD::Pg perl module isn't provided in the container. You might want to install it or use psql for import to PostgreSQL
 * import_all.sh script isn't working in current version of ora2pg because of following lines: ```  pgdsn_defined=$(grep "^PG_DSN" config/ora2pg.conf | sed 's/.*dbi:Pg/dbi:Pg/')
